@@ -20,21 +20,21 @@ Yun Wei: Wednesday 3:30 - 5:00 PM tentatively in EECS 1222
 
 **Recommended texts:** (on reserve at the Art, Architecture, and Engineering Library)
 
-*   Murphy, Machine Learning: A Probabilistic Perspective, MIT Press, 2012, available online [here (Links to an external site.)Links to an external site.](http://www.lib.umich.edu/database/ebook-library/3339490?inst=aa) or [here (Links to an external site.)Links to an external site.](http://proxy.lib.umich.edu/login?url=http://site.ebrary.com/lib/umich/Doc?id=10597102) to UM users.
-*   Hastie, Tibshirani, and Friedman, The Elements of Statistical Learning: Data Mining, Inference, and Prediction, Springer, Second Edition, [pdf available for download (Links to an external site.)Links to an external site.](https://web.stanford.edu/~hastie/ElemStatLearn/) This book is also [available online (Links to an external site.)Links to an external site.](http://mirlyn.lib.umich.edu/Record/008155658) to UM users, who may purchase a $25 print version by clicking on the "buy now" link from the online book.
+*   Murphy, Machine Learning: A Probabilistic Perspective, MIT Press, 2012, available online [here](http://www.lib.umich.edu/database/ebook-library/3339490?inst=aa) or [here](http://proxy.lib.umich.edu/login?url=http://site.ebrary.com/lib/umich/Doc?id=10597102) to UM users.
+*   Hastie, Tibshirani, and Friedman, The Elements of Statistical Learning: Data Mining, Inference, and Prediction, Springer, Second Edition, [pdf available for download](https://web.stanford.edu/~hastie/ElemStatLearn/) This book is also [available online](http://mirlyn.lib.umich.edu/Record/008155658) to UM users, who may purchase a $25 print version by clicking on the "buy now" link from the online book.
 *   Bishop, Pattern Recognition and Machine Learning, Springer, 2006.
-*   Mohri, Rostamizadeh, and Talwalkar, Foundations of Machine Learning, MIT Press, 2012, available online [here (Links to an external site.)Links to an external site.](http://proxy.lib.umich.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=478737&site=ehost-live&scope=site).
-*   Duda, Hart, and Stork, Pattern Classification, Wiley, 2001, [available online (Links to an external site.)Links to an external site.](http://mirlyn.lib.umich.edu/Record/004091019) to UM users.
+*   Mohri, Rostamizadeh, and Talwalkar, Foundations of Machine Learning, MIT Press, 2012, available online [here](http://proxy.lib.umich.edu/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=478737&site=ehost-live&scope=site).
+*   Duda, Hart, and Stork, Pattern Classification, Wiley, 2001, [available online ](http://mirlyn.lib.umich.edu/Record/004091019) to UM users.
 
 **Additional references:**
 
-*   Scholkopf and Smola, Learning with Kernels, MIT Press, 2002, [available online (Links to an external site.)Links to an external site.](http://mirlyn.lib.umich.edu/Record/012897581). to UM users.
+*   Scholkopf and Smola, Learning with Kernels, MIT Press, 2002, [available online ](http://mirlyn.lib.umich.edu/Record/012897581). to UM users.
 *   Mardia, Kent, and Bibby, Multivariate Analysis, Academic Press, 1979 (good for PCA, MDS, and factor analysis).
-*   Boyd and Vandenberghe, Convex Optimization, Cambridge University Press, 2004, [pdf available for download (Links to an external site.)Links to an external site.](http://www.stanford.edu/~boyd/cvxbook/)  and also [available online (Links to an external site.)Links to an external site.](http://mirlyn.lib.umich.edu/Record/012600863) to UM users (only 7 users at a time).
+*   Boyd and Vandenberghe, Convex Optimization, Cambridge University Press, 2004, [pdf available for download](http://www.stanford.edu/~boyd/cvxbook/)  and also [available online](http://mirlyn.lib.umich.edu/Record/012600863) to UM users (only 7 users at a time).
 *   Shalev-Shwartz and Ben-David, Understanding machine learning: from theory to algorithms, Cambridge University Press, 2014.
-*   Sutton and Barto, Reinforcement Learning: An Introduction, MIT Press, 1998, [available online (Links to an external site.)Links to an external site.](http://mirlyn.lib.umich.edu/Record/012898412) to UM users.
-*   DasGupta, Probability for Statistics and Machine Learning, Springer 2011 [available online (Links to an external site.)Links to an external site.](https://link.springer.com/book/10.1007%2F978-1-4419-9634-3)
-*   Visual linear algebra videos, online [3Blue1Brown (Links to an external site.)Links to an external site.](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw) channel
+*   Sutton and Barto, Reinforcement Learning: An Introduction, MIT Press, 1998, [available online](http://mirlyn.lib.umich.edu/Record/012898412) to UM users.
+*   DasGupta, Probability for Statistics and Machine Learning, Springer 2011 [available online](https://link.springer.com/book/10.1007%2F978-1-4419-9634-3)
+*   Visual linear algebra videos, online [3Blue1Brown](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw) channel
 
 **Prerequisites:** (the current formal prerequisite is currently listed as EECS 492, Artificial Intelligence, but this is inaccurate)
 
@@ -83,7 +83,7 @@ Collaboration on homeworks:
 Each student will prepare the final write-up/coding of his or her homework solutions without reference to any other person or source, aside from the student's own notes or scrap work. Students may consult classmates for the purpose of brainstorming, but not for obtaining the details of solutions. Under no circumstances may you copy solutions or code from a classmate or other source.
 
 Academic Integrity  
-All undergraduate and graduate students are expected to abide by the College of Engineering Honor Code as stated in the [Student Handbook (Links to an external site.)Links to an external site.](http://advising.engin.umich.edu/wp-content/uploads/sites/53/2015/06/2015fysh-final-v3-10.pdf) and the [Honor Code Pamphlet (Links to an external site.)Links to an external site.](http://ossa.engin.umich.edu/wp-content/uploads/sites/212/2015/04/Honor-code-pamphlet-Adobe-Prof.pdf).
+All undergraduate and graduate students are expected to abide by the College of Engineering Honor Code as stated in the [Student Handbook ](http://advising.engin.umich.edu/wp-content/uploads/sites/53/2015/06/2015fysh-final-v3-10.pdf) and the [Honor Code Pamphlet ](http://ossa.engin.umich.edu/wp-content/uploads/sites/212/2015/04/Honor-code-pamphlet-Adobe-Prof.pdf).
 
 Students with Disabilities  
 Any student with a documented disability needing academic adjustments or accommodations is requested to speak with me during the first two weeks of class. All discussions will remain confidential.
