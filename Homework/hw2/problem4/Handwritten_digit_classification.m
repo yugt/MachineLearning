@@ -41,6 +41,22 @@ compare(predict<0.5)=-1;
 disp('test error')
 disp(1-nnz(y_test==compare)/size(y_test,2))
 
+error_list = find(y_test~=compare);
+[~,index]=maxk(abs(predict(error_list)-0.5),20);
+error_list_top = error_list(index);
+label=[4,9];
+for i=1:length(error_list_top)
+    subplot(4,5,i)
+    imagesc(reshape(x(:,error_list_top(i)),[sqrt(d),sqrt(d)])')
+    title(strcat(num2str(label((y(error_list_top(i))+3)/2)),...
+        '  #',num2str(error_list_top(i))))
+end
+set(gcf,'Units','inches');
+screenposition = get(gcf,'Position');
+set(gcf,...
+    'PaperPosition',[0 0 screenposition(3:4)],...
+    'PaperSize',[screenposition(3:4)]);
+print -dpdf -painters hw2p4b
 
 
 function[output] = sigmoid(x, theta)
