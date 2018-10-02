@@ -3,8 +3,7 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{minted}
-\definecolor{bg}{HTML}{282828}
-\usemintedstyle{monokai}
+\usemintedstyle{manni}
 \pagestyle{empty}
 
 \begin{document}
@@ -14,7 +13,7 @@
 \subsection{Bayesian Spam Filtering}
 The test error for Bayesian classifier is 11.00\%, while the majority class predictor has test error 38.56\%.
 So we con conclude that the Bayesian classifier is working.
-\inputminted[linenos,bgcolor=bg]{octave}{./hw2/problem2/Bayesian_spam_filtering.m}
+\inputminted[frame=single,framesep=10pt,linenos,xleftmargin=\parindent]{octave}{./hw2/problem2/Bayesian_spam_filtering.m}
 \setcounter{subsection}{3}
 \subsection{Handwritten digit classification with logistic regression}
 The test error is 5.40\%.
@@ -24,7 +23,7 @@ The value of the objective function at the optimum is \(6381.5\).
 Since the logistic regression rely on \(\eta(x)\) which is a probability, we take the difference between these probabilities and the threshold \(\frac{1}{2}\), and take the absolute value.
 \[ \left|\eta(x)-\frac{1}{2}\right| \]
 The larger this value is, the more confident the regression classifier is about its prediction.
-\inputminted[linenos,bgcolor=bg]{octave}{./hw2/problem4/Handwritten_digit_classification.m}
+\inputminted[frame=single,framesep=10pt,linenos,xleftmargin=\parindent]{octave}{./hw2/problem4/Handwritten_digit_classification.m}
 \begin{figure}
     \centering
     \includegraphics{./hw2/problem4/hw2p4b.pdf}
