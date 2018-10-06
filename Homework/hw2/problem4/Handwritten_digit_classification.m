@@ -14,8 +14,9 @@ x_train = [ones(1,size(x_train,2));x_train];
 y_train(y_train<0)=0;
 
 %% Newton-Raphson iteration %%
+
+for lambda=1:15
 w=zeros(size(x_train,1),1);
-lambda=10;
 for i=1:500
     gradient = 2*lambda*w+x_train*(y_train-sigmoid(x_train, -w))';
     p=sigmoid(x_train,w);
@@ -32,6 +33,8 @@ for i=1:500
     else
         w=w_new;
     end
+end
+sprintf('lambda %d iteration %d', lambda, i)
 end
 
 %% Testing %%
