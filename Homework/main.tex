@@ -3,10 +3,12 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{minted}
+\usepackage{comment}
 \usemintedstyle{manni}
 \pagestyle{empty}
 
 \begin{document}
+\begin{comment}
 \setcounter{section}{1}
 \section{Homework Coding Part}
 \setcounter{subsection}{1}
@@ -29,4 +31,15 @@ The larger this value is, the more confident the regression classifier is about 
     \includegraphics[width=0.85\textwidth]{./hw2/problem4/hw2p4b.pdf}
     \caption{Top 20 mis-classified images}
 \end{figure}
+\end{comment}
+Q
+\setcounter{section}{2}
+\section{Homework Coding Part}
+\subsection{Linear Regression}
+\inputminted[frame=single,framesep=10pt,linenos,xleftmargin=\parindent]{octave}{./hw3/problem1/Linear_regression.m}
+The mean square error for ordinary linear regression is \(22.2826\).
+The mean square error for regularized least squares regression is \(21.4859\).
+The predicted response at the input \(x=[100, 100]\) is \(24.4581\).
+The regularized least squares regression (Ridge) has parameter
+\[ w=[ 0.6487, -0.0632]^T \hspace{2em} b=-34.0834 \]
 \end{document}
