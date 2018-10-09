@@ -1,5 +1,4 @@
-function [] = main()
-clear all; close all;
+close all;clc;
 n = 200;
 rng(0); % seed random number generator
 x = rand(n,1);
@@ -14,10 +13,14 @@ plot(t,10*t+5,'k')
 
 
 % add your code for ordinary least squares below
-plot(t, w_ols*t + b_ols, 'g--');
+
+
+% plot(t, w_ols*t + b_ols, 'g--');
 % add your code for the robust regression MM algorithm below
-plot(t, w_rob*t + b_rob, 'r:');
-legend('data','true line','least squares','robust')
+% plot(t, w_rob*t + b_rob, 'r:');
+% legend('data','true line','least squares','robust')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [w,b] = wls(x,y,c);
+function [w,b] = wls(x,y,c)
 % a helper function to solve weighted least squares
+end
+
