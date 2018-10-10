@@ -11,14 +11,12 @@ hold on
 t = 0:0.01:1;
 plot(t,10*t+5,'k')
 
-
 % add your code for ordinary least squares below
 X=[ones(size(x)) x];
 w=X\y;
 w_ols=w(2);
 b_ols=w(1);
 plot(t, w_ols*t + b_ols, 'g--');
-
 
 % add your code for the robust regression MM algorithm below
 rho_prime=@(r) r./sqrt(1+r.^2);
