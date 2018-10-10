@@ -43,6 +43,7 @@ The predicted response at the input \(x=[100, 100]\) is \(24.4581\).
 The regularized least squares regression (Ridge) has parameter
 \[ w=[ 0.6487, -0.0632]^T \hspace{2em} b=-34.0834 \]
 \subsection{Robust Regression}
+\paragraph{(a)}
 In order to be consistent with the higher dimension case, I denote \(\theta=[b, w]^T\), \(\tilde{x}_i=[1; x_i]\).
 The majoring function is
 \[ \bar{J} (\theta;\theta_t)=\sum_{i=1}^{n}\left[\rho(y_i-\tilde{x}_i^T\theta_t)-\frac{y_i-\tilde{x}_i^T\theta_t}{2}\rho'(y_i-\tilde{x}_i^T\theta_t) \right]+\frac{1}{2}\sum_{i=1}^{n}\frac{\rho'(y_i-\tilde{x}_i^T\theta_t)}{y_i-\tilde{x}_i^T\theta_t}\left(y_i-\tilde{x}_i^T\theta\right) \]
@@ -52,17 +53,12 @@ The second sum is exactly the reweighted least squares, as it can be written as
 Thus, the iteration becomes
 \[ \theta_{t+1}=\left(\tilde{x}^TC\tilde{x}\right)^{-1}\tilde{x}^TCy \]
 Hence, the majoring-mininizing algorithm can be understood as ``iteratively reweighted least squares''.
-It achieves robustness by assigning \emph{lower} weights for outliers and \emph{higher} weights for inliers.
+It achieves robustness by assigning \emph{lower} weights for outliers and \emph{higher} weights for inliers, since by lemma, the weight function \(\frac{\rho'(r)}{r}\) is a non-increasing function on \(r\).
+\paragraph{(b)}
 As we can see, by picking specific \(\rho\) with \(\rho(r)=\sqrt{1+r^2}+1\), we have its derivative
 \[ \rho'(r)=\frac{r}{\sqrt{1+r^2}} \]
-Then, the weights are
+Then, the weights for this specific \(\rho\) are
 \[ \frac{\rho'(r_{t,i})}{r_{t_i}}=\frac{1}{\sqrt{1+r_{t,i}^2}}=\frac{1}{\sqrt{1+\left(y_i-\tilde{x}_i^T\theta_t\right)^2}} \]
-Thus, the outliers have less weights and inliers have more weights.
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.85\textwidth]{./hw3/problem2/hw3p2.pdf}
-    \caption{Data, true line, OLS estimate, robust estimate}
-\end{figure}
 The parameters from MM algorithm and ordinary linear regression are
 \begin{center}
 \begin{tabular}{c|cc}
@@ -71,5 +67,10 @@ The parameters from MM algorithm and ordinary linear regression are
     ordinary & \(-0.8061\) & \(10.5285\)
 \end{tabular}
 \end{center}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{./hw3/problem2/hw3p2.pdf}
+    \caption{Data, true line, OLS estimate, robust estimate}
+\end{figure}
 \inputminted[frame=single,framesep=10pt,linenos,xleftmargin=\parindent]{octave}{./hw3/problem2/Robust_regression.m}
 \end{document}
