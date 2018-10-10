@@ -40,9 +40,16 @@ w_rob=theta(2);
 
 plot(t, w_rob*t + b_rob, 'r:');
 legend('data','true line','least squares','robust')
+
+set(gcf,'Units','inches');
+screenposition = get(gcf,'Position');
+set(gcf,...
+    'PaperPosition',[0 0 screenposition(3:4)],...
+    'PaperSize',[screenposition(3:4)]);
+print -dpdf -painters hw3p2 -r300
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [theta] = wls(X,y,c)
 % a helper function to solve weighted least squares
 theta=(X'*c*X)\(X'*c*y);
 end
-
