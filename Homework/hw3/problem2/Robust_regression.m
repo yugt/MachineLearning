@@ -13,14 +13,36 @@ plot(t,10*t+5,'k')
 
 
 % add your code for ordinary least squares below
+X=[ones(size(x)) x];
+w=X\y;
+w_ols=w(2);
+b_ols=w(1);
+plot(t, w_ols*t + b_ols, 'g--');
 
 
-% plot(t, w_ols*t + b_ols, 'g--');
 % add your code for the robust regression MM algorithm below
-% plot(t, w_rob*t + b_rob, 'r:');
-% legend('data','true line','least squares','robust')
+rho_prime=@(r) r./sqrt(1+r.^2);
+theta=[0;0];
+for i=1:100
+    r=y-X*theta;
+    C=diag(rho_prime(r)./r);
+    theta_new=wls(X,y,C);
+    if(vecnorm(theta_new-theta)<1e-5)
+        disp('converge')
+        disp(i)
+        break
+    else
+        theta=theta_new;
+    end
+end
+b_rob=theta(1);
+w_rob=theta(2);
+
+plot(t, w_rob*t + b_rob, 'r:');
+legend('data','true line','least squares','robust')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [w,b] = wls(x,y,c)
+function [theta] = wls(X,y,c)
 % a helper function to solve weighted least squares
+theta=(X'*c*X)\(X'*c*y);
 end
 
