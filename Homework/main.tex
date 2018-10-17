@@ -103,9 +103,23 @@ The two figures are shown in Figure \ref{hw3p4b}.
     \centering
     \includegraphics[width=0.85\textwidth]{./hw3/problem4/hw3p4b1.pdf}
     \includegraphics[width=0.85\textwidth]{./hw3/problem4/hw3p4b2.pdf}
-    \caption{Learned separating hyperplane and Loss by iteration}
+    \caption{Subgradient Learned separating hyperplane and Loss by iteration}
     \label{hw3p4b}
 \end{figure}
 \paragraph{(c)}
+The estimated hyperplane parameters are
+\[ w=\begin{bmatrix} -5.9996 \\ 25.6366 \end{bmatrix} \hspace{2em} b=-2.3141 \]
+The minimum achieved value of the objective function is
+\[ J(w,b)=0.2935 \]
+The two figures are shown in Figure \ref{hw3p4c}.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{./hw3/problem4/hw3p4c1.pdf}
+    \includegraphics[width=0.85\textwidth]{./hw3/problem4/hw3p4c2.pdf}
+    \caption{Stochastic subgradient Learned separating hyperplane and Loss by iteration}
+    \label{hw3p4c}
+\end{figure}
+\paragraph{(e)}
 \inputminted[frame=single,framesep=10pt,linenos,xleftmargin=\parindent]{octave}{./hw3/problem4/subgradient.m}
+\inputminted[frame=single,framesep=10pt,linenos,xleftmargin=\parindent]{octave}{./hw3/problem4/stochastic.m}
 \end{document}
