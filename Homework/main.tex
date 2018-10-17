@@ -73,4 +73,16 @@ The parameters from MM algorithm and ordinary linear regression are
     \caption{Data, true line, OLS estimate, robust estimate}
 \end{figure}
 \inputminted[frame=single,framesep=10pt,linenos,xleftmargin=\parindent]{octave}{./hw3/problem2/Robust_regression.m}
+\setcounter{subsection}{3}
+\subsection{Subgradient methods for the optimal soft margin hyperplane}
+\paragraph{(a)}
+We pick \(J_i(w,b)\) to be
+\[ J_i(w,b)=\frac{1}{n}L(y_i,w^T x_i+b)+\frac{\lambda}{2n} w^T w \]
+This gives
+\[ J(w,b)=\frac{1}{n}\sum_{i=1}^{n}\left[L(y_i,w^T x_i+b) \right] +\frac{\lambda}{2}w^T w \]
+To choose a subgradient for the non-differentiable function, we take
+\[ \frac{\partial L(y,t)}{\partial t}=-\frac{1}{2}y \]
+As usual trick, denote  \(\theta=[b, w]^T\), \(\tilde{x}_i=[1; x_i]\).
+Apply the chain rule, we get a subgradient
+\[ u_i= \nabla J_i(\theta)=\frac{1}{n}\left[\nabla L(y_i,\theta^T\tilde{x}_i) + \frac{\lambda}{2}\nabla(\theta^T\theta) \right]=\frac{1}{n}\left[ -\frac{y_i}{2}\tilde{x}_i+\lambda\theta \right] \]
 \end{document}
