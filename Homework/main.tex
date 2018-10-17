@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage[letterpaper, margin=1in, headheight=105pt]{geometry}
 \usepackage{graphicx}
+\usepackage{amsmath}
 \usepackage{xcolor}
 \usepackage{minted}
 \usepackage{comment}
@@ -79,10 +80,17 @@ The parameters from MM algorithm and ordinary linear regression are
 We pick \(J_i(w,b)\) to be
 \[ J_i(w,b)=\frac{1}{n}L(y_i,w^T x_i+b)+\frac{\lambda}{2n} w^T w \]
 This gives
-\[ J(w,b)=\frac{1}{n}\sum_{i=1}^{n}\left[L(y_i,w^T x_i+b) \right] +\frac{\lambda}{2}w^T w \]
+\[ J(w,b)=\sum_{i=1}^{n}J_i(w,b)=\frac{1}{n}\sum_{i=1}^{n}\left[L(y_i,w^T x_i+b) \right] +\frac{\lambda}{2}w^T w \]
 To choose a subgradient for the non-differentiable function, we take
-\[ \frac{\partial L(y,t)}{\partial t}=-\frac{1}{2}y \]
+\[ \frac{\partial L(y,t)}{\partial t}=\frac{1}{2}\left[\mathtt{sign}(t-y)-y \right] \]
+which provides
+\[ \frac{\partial L(y,t)}{\partial t}=\begin{cases} [\mathtt{sign}(t-1)-1]/2 & y=1 \\ [\mathtt{sign}(t+1)+1]/2 & y=-1 \end{cases} \]
+By chain rule,
+\begin{align*}
+    \frac{\partial{J_i(w,b)}}{\partial b}&=\frac{1}{2n}[\mathtt{sign}(w^T x_i+b-y_i)-y_i] \\
+    \nabla_w J_i(w,b)&=\frac{x_i}{2n}[\mathtt{sign}(w^T x_i+b-y_i)-y_i]+\frac{\lambda}{n}w
+\end{align*}
 As usual trick, denote  \(\theta=[b, w]^T\), \(\tilde{x}_i=[1; x_i]\).
-Apply the chain rule, we get a subgradient
-\[ u_i= \nabla J_i(\theta)=\frac{1}{n}\left[\nabla L(y_i,\theta^T\tilde{x}_i) + \frac{\lambda}{2}\nabla(\theta^T\theta) \right]=\frac{1}{n}\left[ -\frac{y_i}{2}\tilde{x}_i+\lambda\theta \right] \]
+Then, the subgradient with respect to \(\theta\) is the concatenated vector of the previous two.
+\[ u_i= \nabla J_i(\theta)=\begin{bmatrix}[\mathtt{sign}(w^T x_i+b-y_i)-y_i]/2n \\ x_i[\mathtt{sign}(w^T x_i+b-y_i)-y_i]/2n+\lambda w/n \end{bmatrix} \]
 \end{document}
