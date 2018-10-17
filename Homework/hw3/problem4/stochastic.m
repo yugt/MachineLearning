@@ -1,19 +1,19 @@
 load('nuclear.mat')
 
-% rng(0);
-% w=[0.5;0.5]; b=0;
-% J=zeros(20*size(x,2),1);
-% p=randperm(size(x,2));
-% for j=1:200
-%     u=zeros(size(w,1)+1,1);
-%     for i=1:size(x,2)
-%         u=u+subgradient_hinge(w,b,x,y,p(i));
-%         b=b-u(1)*100/j;
-%         w=w-u(2:end)*100/j;
-%         J((j-1)*size(x,2)+i)=objectiveJ(w,b,x,y);
-%     end
-% 
-% end
+rng(0);
+w=[0.5;0.5]; b=0;
+J=zeros(20*size(x,2),1);
+p=randperm(size(x,2));
+for j=1:200
+    u=zeros(size(w,1)+1,1);
+    for i=1:size(x,2)
+        u=u+subgradient_hinge(w,b,x,y,p(i));
+        b=b-u(1)*100/j;
+        w=w-u(2:end)*100/j;
+        J((j-1)*size(x,2)+i)=objectiveJ(w,b,x,y);
+    end
+
+end
 
 scatter(x(1,y==-1),x(2,y==-1),'d')
 hold on
