@@ -119,6 +119,11 @@ The two figures are shown in Figure \ref{hw3p4c}.
     \caption{Stochastic subgradient Learned separating hyperplane and Loss by iteration}
     \label{hw3p4c}
 \end{figure}
+\paragraph{(d)}
+The subgradient method is more stable, but the optimizer obtained by the subgradient method may not be as optimal as the stochastic subgradient method.
+This is because stochastic subgradient method updates much more frerquently than the subgradient method, so it has better chance to hit a lower objective function.
+However, we can see that there is no sign of convergence for stochastic subgradient method at the end of iteration, although it is indeed much better than the initial period (the \(y\)-axis is in log scale).
+By contrast, the subgradient method converges quite well at the end of iteration, as we can see the curve is nearly flat.
 \paragraph{(e)}
 \inputminted[frame=single,framesep=10pt,linenos,xleftmargin=\parindent]{octave}{./hw3/problem4/subgradient.m}
 \inputminted[frame=single,framesep=10pt,linenos,xleftmargin=\parindent]{octave}{./hw3/problem4/stochastic.m}
