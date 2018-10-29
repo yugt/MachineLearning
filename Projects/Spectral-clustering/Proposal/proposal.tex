@@ -38,18 +38,36 @@ So we want to separate the connected digits apart.
 \subsection*{Motivation}
 This problem is motivated from one of the computer vision problem to recognize hand-written digits.
 Many good algorithms have been developed to classify a single digit with very high accuracy.
-However, when we switch to multiple digits, one of the difficulty occurs is that if the digits are accidentally connected, 
+However, when we switch to multiple digits, one of the difficulties is that if the digit accidentally intersect with each other
 \subsection*{Papers to focus on}
-Paper 
-
-
+We will focus on two papers, since one of the paper is published with the code.
+The paper with \href{http://sciences.ucf.edu/math/tengz/wp-content/uploads/sites/45/2016/07/code.zip}{code} is
 \href{http://www.jmlr.org/papers/volume18/14-318/14-318.pdf}{(Arias-Castro and Lerman, Zhang,2017)}
-\href{https://papers.nips.cc/paper/4246-sparse-manifold-clustering-and-embedding.pdf}{(Elhamifar and Vidal, 2011)}
-\href{http://sciences.ucf.edu/math/tengz/wp-content/uploads/sites/45/2016/07/code.zip}{code}
 \cite{Arias-Castro:2017:SCB:3122009.3122018}
+The other paper is \href{https://papers.nips.cc/paper/4246-sparse-manifold-clustering-and-embedding.pdf}{(Elhamifar and Vidal, 2011)}
+\cite{NIPS2011_4246}, which is cited by \cite{Arias-Castro:2017:SCB:3122009.3122018} for comparison.
+These authors also write some other papers related to spectral clustering, so they also be helpful in understanding the possible variations and extensions of the algorithm.
+
+
 \subsection*{Methods to be compared}
+We will compare the spectral clustering algorithms mentioned in these two papers with \href{https://papers.nips.cc/paper/2092-on-spectral-clustering-analysis-and-an-algorithm.pdf}{(Ng and Jordan, Weiss, 2001)}\cite{Ng:2001:SCA:2980539.2980649} which will be introduced in class.
+One of the effect, as Arisa-Castro indicated, is that Ng's algorithm may detect non-smooth manifold, while the spectral clustering bases on local PCA can typically detect smooth manifolds as Figure \ref{fig1} shows.\cite{Arias-Castro:2017:SCB:3122009.3122018}
+
+
 \subsection*{Data sets}
+For hand-written digit separation, we will use self-generated test-cases (e.g., Figure \ref{fig1}).
+The advantage of self-generated data set is that we can test specifically on the intersection and see if the spectral clustering gives the correct separation, and it is very convenient for small number of test-cases.
+Another public library, MNIST, may be an option for stress testing, but we still need to pairwisely intersect them to produce the desired input.
+
+Also, the spectral clustering algorithm is not restricted to hand-written digit recognition.
+We can design other manifolds for the algorithm to detect.
+Arias-Castro did the M\"{o}bius strips and paraboloids intersection separation \cite{Arias-Castro:2017:SCB:3122009.3122018}, and we can try Klein bottle or torus.
+
 \subsection*{Group member roles}
+\paragraph{Guangting Yu} will be responsible for algorithm implementation, code management, testing and comparing with similar algorithms.
+\paragraph{Dr. Jia Guo} will be responsible for reading the proofs of theorems in the paper and conduct mathematical analysis on our implementation.
+\paragraph{Masaya Tsukamoto} will be responsible for test-case designing, including hand-written digit generation and smooth intersecting manifolds for separation.
+\paragraph{Dr. Zihan Wang} will be responsible for writing reports by joining all the work from teammates.
 
 \newpage
 \bibliography{reference}{}
