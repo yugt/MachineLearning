@@ -1,3 +1,7 @@
 */.ipynb_checkpoints/*
 */_minted-main/*
 *.m~
+*.log
+*.aux
+*.gz
+*.pdf
