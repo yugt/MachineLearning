@@ -11,7 +11,7 @@ y_test=y(n+1:end);
 sigma=15;
 lambda=0.003;
 K=exp(-dist2(X_train,X_train)/(2*sigma^2));
-K_tilde=K-K*ones(n)-ones*K+ones(n)*K*ones(n);
+K_tilde=K-K*ones(n)/n-ones(n)*K/n+ones(n)*K*ones(n)/n^2;
 K_prime=exp(-dist2(X_test,X_train)/(2*sigma^2));
 
 J=eye(n)-ones(n)/n;
