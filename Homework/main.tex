@@ -32,7 +32,7 @@ The larger this value is, the more confident the regression classifier is about 
     \includegraphics[width=0.85\textwidth]{./hw2/problem4/hw2p4b.pdf}
     \caption{Top 20 mis-classified images}
 \end{figure}
-\end{comment}
+
 
 \setcounter{section}{2}
 \section{Homework Coding Part}
@@ -127,4 +127,32 @@ By contrast, the subgradient method converges quite well at the end of iteration
 \paragraph{(e)}
 \inputminted[frame=single,framesep=10pt,linenos,xleftmargin=\parindent]{octave}{./hw3/problem4/subgradient.m}
 \inputminted[frame=single,framesep=10pt,linenos,xleftmargin=\parindent]{octave}{./hw3/problem4/stochastic.m}
+\end{comment}
+
+\setcounter{section}{3}
+\section{Homework Coding Part}
+\setcounter{subsection}{1}
+\subsection{Kernel Ridge Regression}
+\paragraph{(c)}
+The prediction function with offset is
+\[ \hat{f}(X')=K'^{T}\left(I-J_{n\times n}/n\right)(\tilde{K}+n\lambda I)^{-1}\tilde{y}+\frac{1}{n}J_{m\times n}\left[y-K(I-J_{n\times n}/n)(\tilde{K}+n\lambda I)^{-1}\tilde{y} \right] \]
+\begin{itemize}
+    \item The mean squared error on the training data is \(19.0169\).
+    \item The mean squared error on the test data is \(23.5359\).
+    \item The offset is \(19.4295\).
+\end{itemize}
+
+\paragraph{(d)}
+The prediction function without offset is
+\[ \hat{f}(X')=K'^{T}(K+n\lambda I)^{-1}y \]
+\begin{itemize}
+    \item The mean squared error on the training data is \(19.2496\).
+    \item The mean squared error on the test data is \(26.3969\).
+\end{itemize}
+Obviously, the kernel ridge regression with offset is better than the one without offset, as the MSEs on both training and test input are lower.
+Also, the ratio of the MSE on test input indicates that the offset is indeed necessary.
+
+\paragraph{(e)}
+\inputminted[frame=single,framesep=10pt,linenos,xleftmargin=\parindent]{octave}{./hw4/problem2/krr.m}
+
 \end{document}
