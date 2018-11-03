@@ -16,7 +16,12 @@ K_prime=exp(-dist2(X_test,X_train)/(2*sigma^2));
 
 J=eye(n)-ones(n)/n;
 
+Core=J*((K_tilde+n*lambda*eye(n))\J);
+y_predict=K_prime*Core*y_train...
+    +ones(m,n)*(eye(n)-K*Core)*y_train/n;
 
-Core=J*(eye(n)-(n*lambda*eye(n)+K_tilde)\K_tilde)*J;
-y_predict=K_prime*Core*y_train/(n*lambda)...
-    +ones(m,n)*(eye(n)-K*Core/(n*lambda))*y_train/n;
+(y_test-y_predict)'*(y_test-y_predict)/m
+
+% Core=J*(eye(n)-(n*lambda*eye(n)+K_tilde)\K_tilde)*J;
+% y_predict=K_prime*Core*y_train/(n*lambda)...
+%     +ones(m,n)*(eye(n)-K*Core/(n*lambda))*y_train/n;
