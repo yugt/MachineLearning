@@ -1,6 +1,10 @@
 import numpy as np
 from sklearn.cluster import KMeans
+from PIL import Image
+import matplotlib
+import matplotlib.pyplot as plt
 
+# Algorithm 1 in the paper, which is used in Algorithm 4
 def SpectralGraphPartitioning(W, K):
     W_rowsum = W.sum(axis=1)
     Z = W / np.sqrt(np.outer(W_rowsum, W_rowsum)) # Step 1, Compute Z
@@ -12,7 +16,7 @@ def SpectralGraphPartitioning(W, K):
     kmeans = KMeans(n_clusters=K, random_state=0).fit(out_matrix) # Step 4, Apply K-means to the row vector
     return kmeans.labels_
 
-
+# Algorithm 4
 def spectral_clustering_lpca(input_data, r, eps, eta, d, K):
     np.random.seed(0)
     n = len(input_data)
@@ -75,3 +79,33 @@ def spectral_clustering_lpca(input_data, r, eps, eta, d, K):
         result_data = np.append(result_data, [[input_data[i][0], input_data[i][1], y_class[min_index]]], axis=0)
 
     return result_data
+
+# Visualization
+def plot_spectral_clustering(picture_name, color_threshold, r, eps, eta, d, K):
+    im1 = Image.open(picture_name)
+    pixel_array = np.array(im1.getdata())
+    black_flag = (pixel_array[:, 0] < color_threshold) \
+                 * (pixel_array[:, 1] < color_threshold) \
+                 * (pixel_array[:, 2] < color_threshold)
+    black_flag = black_flag.reshape(im1.height, im1.width)
+
+    sample_data = np.empty((0, 2), float)
+    for i in range(im1.height):
+        for j in range(im1.width):
+            if black_flag[i][j]:
+                sample_data = np.append(sample_data, np.array([[j, (im1.height - 1) - i]]),
+                                        axis=0)  # (x, y) = (width index, height index)
+
+    # Plot the input data
+    fig = plt.figure(figsize=(12, 4))  # Create an empty figure.
+    sub1 = fig.add_subplot(1, 2, 1)  # Notice we are creating a 2x2 plot.
+    sub2 = fig.add_subplot(1, 2, 2)  # 2nd one.
+    sub1.plot(sample_data[:, 0], sample_data[:, 1], "o", markersize=1)
+
+    result_data = spectral_clustering_lpca(input_data=sample_data, r=r, eps=eps, eta=eta, d=d, K=K)
+
+    # Plot the final result
+    color_list = ['red', 'blue', 'green', 'cyan', 'magenta', 'yellow', 'black']
+    for i in range(K):
+        sub2.plot(result_data[:, 0][result_data[:, 2] == i], result_data[:, 1][result_data[:, 2] == i], "o",
+                  markersize=1, c=color_list[i])
