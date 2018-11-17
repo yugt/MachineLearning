@@ -157,8 +157,36 @@ Also, the ratio of the MSE on test input indicates that the offset is indeed nec
 
 \setcounter{section}{4}
 \section{Homework Coding Parts}
+\setcounter{subsection}{1}
+\subsection{Eigenface}
+\paragraph{(a)}
+Number of principal components needed to represent the total variation:
+\begin{itemize}
+    \item 95\%: 43
+    \item 99\%: 167 
+\end{itemize}
+Percentage reduction in dimension:
+\begin{itemize}
+    \item 95\%: 97.87\%
+    \item 99\%: 91.72\%
+\end{itemize}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{./hw5/problem2/hw5p2a.pdf}
+    \caption{Plot of sorted eigenvalues (ascending order)}
+\end{figure}
 
+\paragraph{(b)}
+Facial variations of the zeroth orfer principal eigenvector captures the most common feature (the existence of eyes, nose, mouth and eyebrows).
+The first 4 eigenvectors capture the shading, where the second eigenvector especially capturs the directed shading from the left to the right.
+The latter eigenvectors capture less important features such as shading of particular parts such as noses and mouths.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{./hw5/problem2/hw5p2b.pdf}
+    \caption{Plot of eigenfaces (descending order of eigenvalues)}
+\end{figure}
+
+
+\paragraph{(c)}
 \inputminted[frame=single,framesep=10pt,linenos,xleftmargin=\parindent]{octave}{./hw5/problem2/eigenface.m}
-
-
 \end{document}
