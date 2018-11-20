@@ -206,17 +206,17 @@ The M-step is
     w_{k}^{(j+1)}&=\left[\sum_{i=1}^{n} \gamma_{ik}^{(j)} \tilde{x}_{ik}^{(j)}
     \tilde{x}_{ik}^{(j)T} \right]^{-1} \sum_{i=1}^{n} \gamma_{ik}^{(j)} \tilde{y}_{ik}^{(j)}\tilde{x}_{ik}^{(j)}\\
     b_{k}^{(j+1)}&=\frac{\sum_{i=1}^T \gamma_{ik}^{(j)}\left[y_i-x_i^T w_{k}^{(j+1)} \right]}{\sum_{i=1}^{n} \gamma_{ik}^{(j)}}\\
-    \sigma_{k}^{2(j+1)}&=\frac{\sum_{i=1}^T \gamma_{ik}^{(j)}\left[y_i-x_i^T w_{k}^{(j)}-b_k^{(j)} \right]}{\sum_{i=1}^{n} \gamma_{ik}^{(j)}}
+    \sigma_{k}^{2(j+1)}&=\frac{\sum_{i=1}^T \gamma_{ik}^{(j)}\left[y_i-x_i^T w_{k}^{(j)}-b_k^{(j)} \right]^2}{\sum_{i=1}^{n} \gamma_{ik}^{(j)}}
 \end{align*}
 
 \paragraph{(c)}
 The number of iterations to reach convergence is \(i=150\).
 The estimated model parameters are
 \begin{itemize}
-    \item \(w=[-1.94656, 1.2956]\)
-    \item \(b=[0.5259, -0.6838]\)
-    \item \(\epsilon=[0.7958, 0.2042]\)
-    \item \(\sigma^2=[0.2202, 0.0731]\)
+    \item \(w=[1.2956, -1.94656]\)
+    \item \(b=[-0.6838, 0.5259]\)
+    \item \(\epsilon=[0.2042, 0.7958]\)
+    \item \(\sigma^2=[0.0731, 0.2202]\)
 \end{itemize}
 \begin{figure}[htbp]
     \centering
