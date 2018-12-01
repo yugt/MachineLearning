@@ -6,6 +6,10 @@
 \usepackage{amssymb}
 \usepackage{natbib}
 \usepackage{amsmath}
+
+\usepackage{algorithm} % for algorithm
+\usepackage{amsfonts} % for \mathbb{R}
+
 \begin{document}
 
 \section{Introduction}
@@ -24,18 +28,27 @@ In this project, the main goal is to deal with the intersections in the handwrit
 The rest of the paper is organized as follows. In Section 2, we will show our algorithm to implement spectral clustering based on local PCA.  The rationale behind the algorithm will be briefly discussed. In Section 3, we will analyze the results of the algorithm. In Section 4, we will show one application of this algorithm. We will build a auto-grader for arithmetic problems. This is also the motivation of this project. With a photo of a set of arithmetic problems, our program can grade all problems.  
 
 \section{Methodology}
-The inputs are: Data points $\boldsymbol{x_1}, ..., \boldsymbol{x_n}$; neighborhood radius $r>0$; spatial scale $\epsilon>0$; projection scale $\eta>0$; intrinsic dimension d; number of clusters K. Steps are:
+\makeatletter
+\renewcommand{\thealgorithm}{} % remove Algorithm number such as Algorithm "4"
+\makeatother
+\begin{algorithm}
+\caption{Spectral Clustering Based on Local PCA}
+\vspace{0.1in}
+\textbf{Input:} \newline
+Data points $\boldsymbol{x}_1, ..., \boldsymbol{x}_n \in \mathbb{R}^D$; neighborhood radius $r>0$; spatial scale $\epsilon>0$; projection scale $\eta>0$; intrinsic dimension $d$; number of clusters $K$. \vspace{0.1in} \newline
+\textbf{Steps:}
 \begin{enumerate}
-\item Pick one point $y_1$ at random from the data. Pick another point $y_2$ among the data points not included in neighborhood $N_r(y_1)$, and repeat the process, selecting centers $y_1$, ..., $y_{n0}$. Here we define the neighborhood $N_r(\boldsymbol{x})=\{\boldsymbol{x_j} : ||\boldsymbol{x}-\boldsymbol{x_j}|| \leqslant r\}$.
-\item For each i = 1, ..., $n_0$, compute the sample covariance matrix $\boldsymbol{C_i}$ of $N_r(y_i)$. Let $\boldsymbol{Q_i}$ denote the orthogonal projection onto the space spanned by the top d eigenvectors of $\boldsymbol{C_i}$.
+\item Pick one point $\boldsymbol{y}_1$ at random from the data. Pick another point $\boldsymbol{y}_2$ among the data points not included in neighborhood $N_r(\boldsymbol{y}_1)$, and repeat the process, selecting centers $\boldsymbol{y}_1$, ..., $\boldsymbol{y}_{n_0}$. Here we define the neighborhood $N_r(\boldsymbol{x})=\{\boldsymbol{x}_j : ||\boldsymbol{x}-\boldsymbol{x}_j|| \leqslant r\}$ for any point $\boldsymbol{x} \in \mathbb{R}^D$ and $r>0$, given a data set $\boldsymbol{x}_1, ..., \boldsymbol{x}_n$.
+\item For each $i$ = 1, ..., $n_0$, compute the sample covariance matrix $\boldsymbol{C}_i$ of $N_r(\boldsymbol{y}_i)$. Let $\boldsymbol{Q}_i$ denote the orthogonal projection onto the space spanned by the top $d$ eigenvectors of $\boldsymbol{C}_i$.
 \item Compute the following affinities between center pairs:
 \begin{equation}
-W_{ij}=exp(-\frac{||\boldsymbol{y_i}-\boldsymbol{y_j}||^2}{\epsilon^2}) \cdot exp(-\frac{||\boldsymbol{Q_i}-\boldsymbol{Q_j}||^2}{\eta^2})
+W_{ij}=\exp \left( -\frac{||\boldsymbol{y}_i-\boldsymbol{y}_j||^2}{\epsilon^2} \right) \cdot \exp \left(-\frac{||\boldsymbol{Q}_i-\boldsymbol{Q}_j||^2}{\eta^2} \right)
 \end{equation}
-\item Compute $\boldsymbol{Z} = (Z_{ij})$ according to $Z_{ij} = W_{ij}/\sqrt{\Delta_i \Delta_j}$, with $\Delta_i=\Sigma_{j=1}^{n} W_{ij}$. Extract the top K eigenvectors of Z. Renormalize each row of the resulting $n \times K$ matrix. Apply K-means to the row vectors.
+\item (Spectral Graph Partitioning) Compute $\boldsymbol{Z} = (Z_{ij})$ according to $Z_{ij} = W_{ij}/\sqrt{\Delta_i \Delta_j}$, with $\Delta_i=\Sigma_{j=1}^{n} W_{ij}$. Extract the top $K$ eigenvectors of $Z$. Renormalize each row of the resulting $n \times K$ matrix. Apply $K$-means to the row vectors.
 \item The data points are clustered according to the closest center in Euclidean distance.
 \end{enumerate}
+\end{algorithm}
 
 \bibliographystyle{apalike}
-\bibliography{ml.bib}
+\bibliography{ml}
 \end{document}  
