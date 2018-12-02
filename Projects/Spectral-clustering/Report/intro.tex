@@ -1,22 +1,26 @@
-\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
-\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
-\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
-\usepackage{graphicx}				% Use pdf, png, jpg, or eps with pdflatex; use eps in DVI mode
-								% TeX will automatically convert eps --> pdf in pdflatex		
-\usepackage{amssymb}
-\usepackage{natbib}
-\usepackage{amsmath}
+%!TEX root = main.tex
 
-\usepackage{algorithm} % for algorithm
-\usepackage{amsfonts} % for \mathbb{R}
+% \documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+% \usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+% \geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+% \usepackage{graphicx}				% Use pdf, png, jpg, or eps with pdflatex; use eps in DVI mode
+% 								% TeX will automatically convert eps --> pdf in pdflatex		
+% \usepackage{amssymb}
+% \usepackage{natbib}
+% \usepackage{amsmath}
 
-\begin{document}
+% \usepackage{algorithm} % for algorithm
+% \usepackage{amsfonts} % for \mathbb{R}
+
+% \begin{document}
+
 
 \section{Introduction}
 
+
 The recognition of handwritten digit strings is relevant in a variety of applications in our daily life. In post office, handwritten ZIP code can be recognized automatically. At primary school, the grading of arithmetic problems can be completed in one second with a smart phone application. However, there are still several challenges in this field. One bottleneck is related with the segmentation module, which segments a string of characters into individual one. The reason behind is that strings sometimes are not neatly written, e.g. overlapping, touching, and intersecting (Fig \ref{example}). Many algorithms have been proposed to deal with this problem. They can mainly be divided into two categories \citep{casey1996}. The first one is segmentation-recognition, which means segmentation is completed before recognition. The second one is recognition based, where the algorithm yields a list of segmentation hypotheses and then assesses each of them through the recognition process. This method will take the information of the foreground and background into account. Recently, segmentation-free methods are also introduced \citep{hochuli2018}.
 
-\begin{figure}[h] %  figure placement: here, top, bottom, or page
+\begin{figure}[ht] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=2in]{example.png} 
    \caption{Variability of connections between handwritten digits.}
@@ -25,14 +29,14 @@ The recognition of handwritten digit strings is relevant in a variety of applica
 
 In this project, the main goal is to deal with the intersections in the handwritten digit strings. Here we will focus on segmentation-recognition implementing the spectral clustering based on local principle component analysis (PCA) \citep{arias2017}. A straightforward idea for segmentation is to utilize spectral clustering \citep{ng2002}. However, a fatal drawback of spectral clustering is that it cannot separate two intersecting clusters. Thus, it cannot deal with the segmentation in handwritten digits. \citet{shashua2006} claim that a multiway affinity is needed to capture complex structure in data (e.g. intersection) beyond proximity attributes. \citet{fan2006} first implemented subspace clustering based on local PCA. Later, \citet{goldberg2009} developed a spectral clustering method within a semi-supervised learning framework. Continuing this line of work, \citep{arias2011} suggest a spectral clustering method based on the estimation of the local linear structure (tangent bundle) via local PCA. There are also two concurrent publications \citep{wang2011, gong2012} with quite similar methods.
 
-The rest of the paper is organized as follows. In Section 2, we will show our algorithm to implement spectral clustering based on local PCA.  The rationale behind the algorithm will be briefly discussed. In Section 3, we will analyze the results of the algorithm. In Section 4, we will show one application of this algorithm. We will build a auto-grader for arithmetic problems. This is also the motivation of this project. With a photo of a set of arithmetic problems, our program can grade all problems.  
+The rest of the paper is organized as follows. In Section 2, we will show authors' algorithms to implement spectral clustering based on local PCA.  The rationale behind the algorithm will be briefly discussed. In Section 3, we will analyze the results of the algorithm. In Section 4, we will show one application of this algorithm. We will build a auto-grader for arithmetic problems. This is also the motivation of this project. With a photo of a set of arithmetic problems, our program can grade all problems.  
 
 \section{Methodology}
-\makeatletter
-\renewcommand{\thealgorithm}{} % remove Algorithm number such as Algorithm "4"
-\makeatother
-\begin{algorithm}
-\caption{Spectral Clustering Based on Local PCA}
+% \makeatletter
+% \renewcommand{\thealgorithm}{} % remove Algorithm number such as Algorithm "4"
+% \makeatother
+% \begin{algorithm}[htbp]
+% \caption{Spectral Clustering Based on Local PCA}
 \vspace{0.1in}
 \textbf{Input:} \newline
 Data points $\boldsymbol{x}_1, ..., \boldsymbol{x}_n \in \mathbb{R}^D$; neighborhood radius $r>0$; spatial scale $\epsilon>0$; projection scale $\eta>0$; intrinsic dimension $d$; number of clusters $K$. \vspace{0.1in} \newline
@@ -47,8 +51,7 @@ W_{ij}=\exp \left( -\frac{||\boldsymbol{y}_i-\boldsymbol{y}_j||^2}{\epsilon^2} \
 \item (Spectral Graph Partitioning) Compute $\boldsymbol{Z} = (Z_{ij})$ according to $Z_{ij} = W_{ij}/\sqrt{\Delta_i \Delta_j}$, with $\Delta_i=\Sigma_{j=1}^{n} W_{ij}$. Extract the top $K$ eigenvectors of $Z$. Renormalize each row of the resulting $n \times K$ matrix. Apply $K$-means to the row vectors.
 \item The data points are clustered according to the closest center in Euclidean distance.
 \end{enumerate}
-\end{algorithm}
+% \end{algorithm}
 
-\bibliographystyle{apalike}
-\bibliography{ml}
-\end{document}  
+
+% \end{document}  
