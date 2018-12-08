@@ -90,6 +90,14 @@ The main idea is that we first divide the original data points into small circle
 Then we grab the information about the direction of the local data arrangement in each circle through the sample covariance matrix $\boldsymbol{C}_i$ and extract the information as the projection matrix $\boldsymbol{Q}_i$.
 The affinities $W_{ij}$ are set so that circles are classified as the same cluster if they are geometrically close and the local directions of the data arrangement are similar.
 
+Different variants, Algorithm 2 and 3 are also proposed. One of the biggest defference is the affinity matrix 
+$W_{ij} = \boldsymbol{1}_{ \{ || \boldsymbol{y}_i - \boldsymbol{y}_j || \leq \epsilon \} } 
+ \boldsymbol{1}_{ \{ || \boldsymbol{C}_i - \boldsymbol{C}_j || \leq \eta r^2 \}}  $ in Algorithm 2 and 
+$W_{ij} = \boldsymbol{1}_{ \{ || \boldsymbol{y}_i - \boldsymbol{y}_j || \leq \epsilon \} } 
+ \boldsymbol{1}_{ \{ || \boldsymbol{Q}_i - \boldsymbol{Q}_j || \leq \eta \}}  $ in Algorithm 3. 
+They are kinds of ``hard" versions and more tractable, where Theorem 1 introduced below holds.
+However, the author found  Algorithm 4 performs better via numerical experiments.
+
 \autoref{cross} is the simplest example of the clustering by this algorithm ($K = 2$, $r = 15.0$, $\epsilon = 15.0$, $\eta = 0.5$).
 The cross-shaped data is seccessfully separated by the intersection.
 
