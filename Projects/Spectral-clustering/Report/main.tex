@@ -33,34 +33,36 @@
 
 \begin{document}
 
-\title{Spectral Clustering}
+\title{Spectral Clustering Based on Local PCA and Applications}
 
-\author{\name Jia Guo \email guojia@umich.edu \\
-        \addr Department of Mathematics\\
-        University of Michigan\\
-        Ann Arbor, MI 48109, USA
-        \AND
-        \name Masaya Tsukamoto \email masayats@umich.edu \\
-        \addr Department of Mathematics\\
-        University of Michigan\\
-        Ann Arbor, MI 48109, USA
-        \AND
-        \name Zihan Wang \email wzihan@umich.edu \\
-        \addr Department of Climate and Space Sciences and Engineering\\
-        University of Michigan\\
-        Ann Arbor, MI 48109, USA
-        \AND
-        \name Guangting Yu \email yugtmath@umich.edu \\
-        \addr Department of Mathematics\\
-        University of Michigan\\
-        Ann Arbor, MI 48109, USA}
+\author{
+\name Jia Guo \email guojia@umich.edu \\
+\addr Department of Mathematics\\
+University of Michigan\\
+Ann Arbor, MI 48109, USA
+\AND
+\name Masaya Tsukamoto \email masayats@umich.edu \\
+\addr Department of Mathematics\\
+University of Michigan\\
+Ann Arbor, MI 48109, USA
+\AND
+\name Zihan Wang \email wzihan@umich.edu \\
+\addr Department of Climate and Space Sciences and Engineering\\
+University of Michigan\\
+Ann Arbor, MI 48109, USA
+\AND
+\name Guangting Yu \email yugtmath@umich.edu \\
+\addr Department of Mathematics\\
+University of Michigan\\
+Ann Arbor, MI 48109, USA
+}
 
 \editor{Aniket,}
 
 \maketitle
 
 \begin{abstract}
-We study a spectral clustering method based on local principal component analysis (PCA).
+We study a spectral clustering method based on local principal component analysis (PCA) \citep{arias2017}.
 Instead of dealing with pair-wise distances between points like the previous algorithms do, this algorithm is able to resolve intersections.
 Especially, the new setting requires the surfaces to be smooth.
 Within this smoothness assumption, there is a mathematical theorem supporting the new algorithms.
@@ -78,7 +80,7 @@ Spectral Clustering, Local principal component analysis, Autograding
 While the analysis of Algorithm 4 seems within reach, there are some complications due to the fact that points near the intersection may form a cluster of their own.
 See \autoref{fig1}.
 The vertical line and $\infty$-shaped line are sccessfully separated by Algorithm 4 ($K = 2$, $r = 15.0$, $\epsilon = 15.0$, $\eta = 0.3$).
-But points near the intersectionis are fully classified as ``Blue" group. 
+But points near the intersections are fully classified as ``Blue" group. 
 \begin{figure}[htbp]
 \centering
 \vspace{-1em}
@@ -103,7 +105,8 @@ See \autoref{sharp_720}. This is obtained by  Algorithm 4  ($K = 3$, $r = 10.0$,
 \label{sharp_720}
 \end{figure}
 
-To clarify the characteristics of the algorithm, additional ``720"-shaped data which was written intentionally smoothly is applied below.  See figure \autoref{smooth_720}, which is obtained by Algorithm 4 with the parameters $K = 3$, $r = 10.0$, $\epsilon = 10.0$, $\eta = 0.5$.
+To clarify the characteristics of the algorithm, additional ``720"-shaped data which was written intentionally smoothly is applied below.
+See \autoref{smooth_720}, which is obtained by Algorithm 4 with the parameters $K = 3$, $r = 10.0$, $\epsilon = 10.0$, $\eta = 0.5$.
 Due to smoothness, ``720" is successfully separated into 3 digits.
 
 %\begin{figure}[htbp]
@@ -131,7 +134,7 @@ Each data point $x_i$ is drawn according to
 $$ x_i = s_i + z_i $$
 where $s_i$ is from the uniform distribution over
 $S_1\cup S_2$ and $z_i$
-is an additive noise term satisfying $||z_i||\le \tau$.
+is an additive noise term satisfying $||z_i||\le \tau$, where \(S_1\) and \(S_2\) represent two different clusters, and \(\tau\geq0\) is a non-negative constant.
 The main theorem of the paper is given below.
 \begin{theorem}
 Consider two connected, compact, twice continuously differentiable submanifolds
@@ -143,21 +146,22 @@ $$
 for large constant $C\ge 1$.
 Then with probability at least $1-Cn\exp(- nr^d\eta^2/C)$:
 \begin{itemize}
-\item Algorithm 2 returns exactly two groups such that two points from different clusters are not grouped together unless one of them is within distance \(C_r\) from the intersection.
-\item Algorithm 3 returns at least two groups, and such that two points from different clusters are not grouped together unless one of them is within distance \(C_r\) from the intersection.
+\item Algorithm 2 returns exactly two groups such that two points from different clusters are not grouped together unless one of them is within distance \(C\cdot r\) from the intersection.
+\item Algorithm 3 returns at least two groups, and such that two points from different clusters are not grouped together unless one of them is within distance \(C\cdot r\) from the intersection.
 \end{itemize}
 \end{theorem}
 
 \begin{proof}
-We give a sketch of proof of algorithm 2 and refers to the paper for more details. Some important notation:
-$$
-I^*=\{i: K_j=K_i,\ \forall j\in\Xi_i  \},\ \ \ \Xi_i=\{j\ne i, s_j\in N_r(s_i)   \}
-$$
-Thus $I^*$ indexes the points whose neighborhoods do not contain points from the other cluster.
+We give a sketch of proof of algorithm 2 and refers to the paper for more details.
+The most important notation is $I^*$, which indexes the points whose neighborhoods do not contain points from the other cluster.
+% $$
+% I^*=\{i: K_j=K_i,\ \forall j\in\Xi_i  \},\ \ \ \Xi_i=\{j\ne i, s_j\in N_r(s_i)   \}
+% $$
+
 \begin{enumerate}
 \item Assume $\tau=0$, and then explain for how things change for $\tau>0$. Deriving a concentration inequality for local covariances with large constant $C$.
 \item Then show that among points away from the intersection, those that are in the same cluster are neighbors in the graph if they are within distance $\epsilon$, while those in different clusters cannot be neighbors in the graph.
-\item Confirming that step 2 in algorithm 2 can eliminate all points which are not included in $I^*$, and  the points removed are within distance $Cr$ of the intersection, furthermore,  points removed are within distance $Cr$ of the intersection.
+\item Confirming that step 2 in algorithm 2 can eliminate all points which are not included in $I^*$, and  the points removed are within distance \(C\cdot r\) of the intersection, furthermore,  points removed are within distance \(C\cdot r\) of the intersection.
 \item Concluding that in step 4, algorithm 2 returns two graphs, and each group covers an entire cluster except for points within distance $O(r)$ of the intersection.
 \end{enumerate}
 \end{proof}
@@ -231,7 +235,7 @@ A small green circle buried in the line can be seen here.
 \end{figure}
 
 When $\epsilon$ is small, the affinity based on geometric distance decays immediately.
-Therefore it is natural that figure \autoref{fig6} [Left] has a mottled pattern.
+Therefore it is natural that \autoref{fig6} [Left] has a mottled pattern.
 Conversely, when $\epsilon$ is large, the affinity remains higher over a wide distance.
 
 \input{application.tex}

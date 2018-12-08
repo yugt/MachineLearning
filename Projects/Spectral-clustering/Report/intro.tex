@@ -49,7 +49,7 @@ Later, \citet{goldberg2009} developed a spectral clustering method within a semi
 Continuing this line of work, \citep{arias2011} suggest a spectral clustering method based on the estimation of the local linear structure (tangent bundle) via local PCA.
 There are also two concurrent publications \citep{wang2011, gong2012} with quite similar methods.
 
-The rest of the paper is organized as follows.
+The rest of the report is organized as follows.
 In Section 2, we will show authors' algorithms to implement spectral clustering based on local PCA.
 The rationale behind the algorithm will be briefly discussed.
 In Section 3, we will analyze the results of the algorithm.
@@ -64,7 +64,20 @@ With a photo of a set of arithmetic problems, our program can grade all problems
 % \makeatother
 % \begin{algorithm}[htbp]
 % \caption{Spectral Clustering Based on Local PCA}
-\vspace{0.1in}
+
+There are four different algorithms on spectral clustering provided in the paper \citep{arias2017}.
+Algorithm 1 gives the sketch of the standard spectral graph partitioning with given affinity matrix \(W\).
+Different variants, Algorithm 2 and 3 are also proposed.
+One of the biggest defference is the affinity matrix 
+$W_{ij} = \boldsymbol{1}_{ \{ || \boldsymbol{y}_i - \boldsymbol{y}_j || \leq \epsilon \} } 
+ \boldsymbol{1}_{ \{ || \boldsymbol{C}_i - \boldsymbol{C}_j || \leq \eta r^2 \}}  $ in Algorithm 2 and 
+$W_{ij} = \boldsymbol{1}_{ \{ || \boldsymbol{y}_i - \boldsymbol{y}_j || \leq \epsilon \} } 
+ \boldsymbol{1}_{ \{ || \boldsymbol{Q}_i - \boldsymbol{Q}_j || \leq \eta \}}  $ in Algorithm 3. 
+They are kinds of ``hard" versions and more tractable, where Theorem 1 introduced below holds.
+However, the author found  Algorithm 4 performs better via numerical experiments.
+So we just provide Algorithm 4 below.
+
+\noindent\hrulefill\\
 \textbf{Input:} \newline
 Data points $\boldsymbol{x}_1, ..., \boldsymbol{x}_n \in \mathbb{R}^D$; neighborhood radius $r>0$; spatial scale $\epsilon>0$; projection scale $\eta>0$; intrinsic dimension $d$; number of clusters $K$. \vspace{0.1in} \newline
 \textbf{Steps:  (called ``Algorithm 4" in the paper)}
@@ -84,19 +97,14 @@ Renormalize each row of the resulting $n \times K$ matrix.
 Apply $K$-means to the row vectors.
 \item The data points are clustered according to the closest center in Euclidean distance.
 \end{enumerate}
+\noindent\hrulefill\\
 % \end{algorithm}
-\vspace{1em}
+
 The main idea is that we first divide the original data points into small circles (or spheres) $N(\boldsymbol{y}_i)$ with the radius $r$.
 Then we grab the information about the direction of the local data arrangement in each circle through the sample covariance matrix $\boldsymbol{C}_i$ and extract the information as the projection matrix $\boldsymbol{Q}_i$.
 The affinities $W_{ij}$ are set so that circles are classified as the same cluster if they are geometrically close and the local directions of the data arrangement are similar.
 
-Different variants, Algorithm 2 and 3 are also proposed. One of the biggest defference is the affinity matrix 
-$W_{ij} = \boldsymbol{1}_{ \{ || \boldsymbol{y}_i - \boldsymbol{y}_j || \leq \epsilon \} } 
- \boldsymbol{1}_{ \{ || \boldsymbol{C}_i - \boldsymbol{C}_j || \leq \eta r^2 \}}  $ in Algorithm 2 and 
-$W_{ij} = \boldsymbol{1}_{ \{ || \boldsymbol{y}_i - \boldsymbol{y}_j || \leq \epsilon \} } 
- \boldsymbol{1}_{ \{ || \boldsymbol{Q}_i - \boldsymbol{Q}_j || \leq \eta \}}  $ in Algorithm 3. 
-They are kinds of ``hard" versions and more tractable, where Theorem 1 introduced below holds.
-However, the author found  Algorithm 4 performs better via numerical experiments.
+
 
 \autoref{cross} is the simplest example of the clustering by this algorithm ($K = 2$, $r = 15.0$, $\epsilon = 15.0$, $\eta = 0.5$).
 The cross-shaped data is seccessfully separated by the intersection.
