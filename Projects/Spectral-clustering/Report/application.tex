@@ -32,7 +32,7 @@ We can see from \autoref{fig10b} is blurred compared with the input \autoref{fig
 
 \subsection{Numbers and operators clustering}
 We take the first equation ``408 + 312 = 720" as an example and apply Algorithm 4 again.
-The main goal in this section is to divide the equation into separete deigits and symbols. Especially we deal with the intersection between handwritten ``2" and handwritten ``0". See \autoref{fig10}.
+The main goal in this section is to divide the equation into separete digits and symbols. Especially we deal with the intersection between handwritten ``2" and handwritten ``0". See \autoref{fig10}.
 
 \begin{figure}[htbp]
     \vspace{-1em}
@@ -44,4 +44,8 @@ The main goal in this section is to divide the equation into separete deigits an
 \end{figure}
 
 \subsection{Handwritten recognition}
-...
+We implement handwritten recognition by using PCA. 
+The results shows that we successfully recognize handwritten ``7" and ``2" but failed in handwritten ``0". 
+However, it quite depends on the database we use, MNIST.
+Handwritten digit recognition is a well-studied problem. Readers can use existing packages from open platform to handle this problem.
+Since this is an irrelevant problem of our main project, we leave it as a future work.
