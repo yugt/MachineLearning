@@ -1,4 +1,4 @@
-\documentclass[twoside,11pt]{article}
+\documentclass{article}
 
 % Any additional packages needed should be included after jmlr2e.
 % Note that jmlr2e.sty includes epsfig, amssymb, natbib and graphicx,
@@ -8,14 +8,34 @@
 % natbib citation styles, see the natbib documentation, a copy of which
 % is archived at http://www.jmlr.org/format/natbib.pdf
 
-\usepackage{jmlr2e}
+\usepackage[final]{nips_2018}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
 \usepackage{algorithm}
 \usepackage{natbib}
 \usepackage{amsmath}
 \usepackage{float}
 \usepackage{subcaption}
 \usepackage{hyperref}
+\usepackage[pdftex]{graphicx}
 
+\newcommand{\BlackBox}{\rule{1.5ex}{1.5ex}}  % end of proof
+\newenvironment{proof}{\par\noindent{\bf Proof\ }}{\hfill\BlackBox\\[2mm]}
+\newtheorem{example}{Example} 
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma} 
+\newtheorem{proposition}[theorem]{Proposition} 
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{axiom}[theorem]{Axiom}
 
 % Definitions of handy macros can go here
 
@@ -24,40 +44,33 @@
 
 % Heading arguments are {volume}{year}{pages}{submitted}{published}{author-full-names}
 
-\jmlrheading{19}{2018}{1-8}{12/00}{13/00}{Jia Guo, Masaya Tsukamoto, Zihan Wang and Guangting Yu}
-
-% Short headings should be running head and authors last names
-
-\ShortHeadings{Spectral Clustering}{Guo, Tsukamoto, Wang and Yu}
-\firstpageno{1}
-
-\begin{document}
-
 \title{Spectral Clustering Based on Local PCA and Applications}
 
-\author{
-\name Jia Guo \email guojia@umich.edu \\
-\addr Department of Mathematics\\
-University of Michigan\\
-Ann Arbor, MI 48109, USA
-\AND
-\name Masaya Tsukamoto \email masayats@umich.edu \\
-\addr Department of Mathematics\\
-University of Michigan\\
-Ann Arbor, MI 48109, USA
-\AND
-\name Zihan Wang \email wzihan@umich.edu \\
-\addr Department of Climate and Space Sciences and Engineering\\
-University of Michigan\\
-Ann Arbor, MI 48109, USA
-\AND
-\name Guangting Yu \email yugtmath@umich.edu \\
-\addr Department of Mathematics\\
-University of Michigan\\
-Ann Arbor, MI 48109, USA
+\author{%
+  Jia Guo \\
+  Department of Mathematics\\
+  \texttt{guojia@umich.edu} \\
+  % examples of more authors
+   \AND
+    Masaya Tsukamoto\\
+   Department of Mathematics\\
+   \texttt{masayats@umich.edu} \\
+   \AND
+   Zihan Wang \\
+   Department of Climate and Space Science and Engineering\\
+   \texttt{wzihan@umich.edu} \\
+   \AND
+   Guangting Yu \\
+   Department of Mathematics \\
+   \texttt{yugtmath@umich.edu} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
 }
 
-\editor{Someone}
+\begin{document}
 
 \maketitle
 
@@ -68,10 +81,6 @@ Especially, the new setting requires the surfaces to be smooth.
 Within this smoothness assumption, there is a mathematical theorem supporting the new algorithms.
 Furthermore, we apply this algorithm to autograding arithmetic problems.
 \end{abstract}
-
-\begin{keywords}
-Spectral Clustering, Local principal component analysis, Autograding
-\end{keywords}
 
 \input{intro.tex}
 
@@ -251,23 +260,20 @@ But it is still a competitive method in spectral clustering, and we give an appl
 
 % Acknowledgements should go at the end, before appendices and references
 
-\acks{
+\section{Acknowlegements}
 \textbf{Jia Guo} reads the proofs of theorems in the paper and conduct mathematical analysis on our implementation.
 \textbf{Masaya Tsukamoto} write the code of the algorithm and designed some testcases, including hand-written digit generation and smooth intersecting manifolds for separation.
 \textbf{Zihan Wang} writes the introduction and additional algorithm in the paper we study.
 \textbf{Guangting Yu} implements the arithmetic autograding based on the algorithm and compare with other existing algorithms.
 Every group member writes the report together and contributes to the project equally.
-}
 
+\medskip
+\small
 % Manual newpage inserted to improve layout of sample file - not
 % needed in general before appendices/bibliography.
 
-\newpage
-
-\appendix
-
-\vskip 0.2in
 % \bibliography{sample}
 % \bibliographystyle{apalike}
+\bibliographystyle{apalike}
 \bibliography{ml}
 \end{document}

@@ -82,7 +82,7 @@ Data points $\boldsymbol{x}_1, ..., \boldsymbol{x}_n \in \mathbb{R}^D$; neighbor
 \begin{enumerate}
 \item Pick one point $\boldsymbol{y}_1$ at random from the data.
 Pick another point $\boldsymbol{y}_2$ among the data points not included in neighborhood $N_r(\boldsymbol{y}_1)$, and repeat the process, selecting centers $\boldsymbol{y}_1$, ..., $\boldsymbol{y}_{n_0}$.
-Here we define the neighborhood $N_r(\boldsymbol{x})=\{\boldsymbol{x}_j : ||\boldsymbol{x}-\boldsymbol{x}_j|| \leqslant r\}$ for any point $\boldsymbol{x} \in \mathbb{R}^D$ and $r>0$, given a data set $\boldsymbol{x}_1, ..., \boldsymbol{x}_n$.
+Here we define the neighborhood $N_r(\boldsymbol{x})=\{\boldsymbol{x}_j : ||\boldsymbol{x}-\boldsymbol{x}_j|| \leq r\}$ for any point $\boldsymbol{x} \in \mathbb{R}^D$ and $r>0$, given a data set $\boldsymbol{x}_1, ..., \boldsymbol{x}_n$.
 \item For each $i$ = 1, ..., $n_0$, compute the sample covariance matrix $\boldsymbol{C}_i$ of $N_r(\boldsymbol{y}_i)$.
 Let $\boldsymbol{Q}_i$ denote the orthogonal projection onto the space spanned by the top $d$ eigenvectors of $\boldsymbol{C}_i$.
 \item Compute the following affinities between center pairs:
