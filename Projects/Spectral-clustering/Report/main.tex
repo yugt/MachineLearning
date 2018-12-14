@@ -108,15 +108,15 @@ See \autoref{sharp_720}. This is obtained by  Algorithm 4  ($K = 3$, $r = 10.0$,
 \begin{figure}[htbp]
 \centering
 \vspace{-1em}
-\includegraphics[width=0.9  \textwidth]{sharp_720.png}
+\includegraphics[width=0.8  \textwidth]{sharp_720.png}
 \vspace{-1em}
 \caption{Failure at the corner}
 \label{sharp_720}
 \end{figure}
 
-To clarify the characteristics of the algorithm, additional ``720"-shaped data which was written intentionally smoothly is applied below.
-See \autoref{smooth_720}, which is obtained by Algorithm 4 with the parameters $K = 3$, $r = 10.0$, $\epsilon = 10.0$, $\eta = 0.5$.
-Due to smoothness, ``720" is successfully separated into 3 digits.
+To clarify the characteristics of the algorithm, additional ``720"-shaped data which were written intentionally smoothly are applied below.
+See \autoref{smooth_720}, both of which are obtained by Algorithm 4 with the parameters $K = 3$, $r = 10.0$, $\epsilon = 10.0$, $\eta = 0.5$.
+Due to smoothness, ``720"s are successfully separated into 3 digits.
 
 %\begin{figure}[htbp]
 %\hspace{-3em}
@@ -128,11 +128,12 @@ Due to smoothness, ``720" is successfully separated into 3 digits.
 %\end{figure}
 \begin{figure}[htbp]
 \centering
-\vspace{-1em}
-\includegraphics[width=0.9  \textwidth]{smooth_720_1.png}
-%\includegraphics[width=0.8  \textwidth]{smooth_720_2.png}
-\vspace{-1em}
-\caption{Successful result with smooth data}
+%\vspace{-2em}
+\includegraphics[width=0.8  \textwidth]{smooth_720_1.png}
+\vspace{-2em}
+\includegraphics[width=0.8 \textwidth]{smooth_720_2.png}
+\vspace{1em}
+\caption{Successful results with smooth data}
 \label{smooth_720}
 \end{figure}
 
@@ -184,41 +185,38 @@ For comparison, results with different parameters are described in \autoref{fig4
 \centering
 \vspace{-1em}
 \hspace{-2em}
-\includegraphics[width=0.33  \textwidth]{eta_small.png}
+\includegraphics[width=0.34 \textwidth]{eta_small.png}
 \hspace{-1em}
-\includegraphics[width=0.33  \textwidth]{normal_720.png}
+\includegraphics[width=0.34  \textwidth]{normal_720.png}
 \hspace{-1em}
-\includegraphics[width=0.33  \textwidth]{eta_large.png}
+\includegraphics[width=0.34  \textwidth]{eta_large.png}
 \hspace{-2em}
-\vspace{-1em}
 \caption{[Left]: $\eta = 0.1$,  [Middle]: $\eta = 0.5$,  [Right]: $\eta = 1.0$}
 \label{fig4}
 \end{figure}
 \begin{figure}[htbp]
 \centering
-\vspace{-2em}
-\hspace{-2em}
-\includegraphics[width=0.33  \textwidth]{r_small.png}
-\hspace{-1em}
-\includegraphics[width=0.33  \textwidth]{normal_720.png}
-\hspace{-1em}
-\includegraphics[width=0.33  \textwidth]{r_large.png}
-\hspace{-2em}
 \vspace{-1em}
+\hspace{-2em}
+\includegraphics[width=0.34  \textwidth]{r_small.png}
+\hspace{-1em}
+\includegraphics[width=0.34  \textwidth]{normal_720.png}
+\hspace{-1em}
+\includegraphics[width=0.34  \textwidth]{r_large.png}
+\hspace{-2em}
 \caption{[Left]: $r = 3.0$,  [Middle]: $r = 10.0$,  [Right]: $r = 40.0$}
 \label{fig5}
 \end{figure}
 \begin{figure}[htbp]
 \centering
-\vspace{-2em}
-\hspace{-2em}
-\includegraphics[width=0.33  \textwidth]{eps_small.png}
-\hspace{-1em}
-\includegraphics[width=0.33  \textwidth]{normal_720.png}
-\hspace{-1em}
-\includegraphics[width=0.33  \textwidth]{eps_large.png}
-\hspace{-2em}
 \vspace{-1em}
+\hspace{-2em}
+\includegraphics[width=0.34  \textwidth]{eps_small.png}
+\hspace{-1em}
+\includegraphics[width=0.34  \textwidth]{normal_720.png}
+\hspace{-1em}
+\includegraphics[width=0.34  \textwidth]{eps_large.png}
+\hspace{-2em}
 \caption{[Left]: $\epsilon = 3.0$,  [Middle]: $\epsilon = 10.0$,  [Right]: $\epsilon = 40.0$}
 \label{fig6}
 \end{figure}
@@ -236,8 +234,7 @@ A small green circle buried in the line can be seen here.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.22  \textwidth]{boundary.png}
-\vspace{-1em}
+\includegraphics[width=0.3  \textwidth]{boundary.png}
 \caption{Small green circle buried in the line}
 \label{fig7}
 %\vspace{-1.0em}
@@ -256,7 +253,13 @@ However, smoothness assumption is crucial to the algorithm and does not always h
 Another drawback behind the algorithm is that the points near the intersections may generate a new cluster of their own.
 But it is still a competitive method in spectral clustering, and we give an application in the real world to demonstrate the ability to handle the intersections.
 
-                
+\section{Code and data}                
+The Python codes and figure data in this report are uploaded in the below GitHub.
+
+\href{https://github.com/masayats/EECS545_Fall2018_code_and_data/}{\url{https://github.com/masayats/EECS545_Fall2018_code_and_data/}}
+
+These codes are implemented from scratch by the team members.
+The main algorithm is written in ``spectral\_clustering\_lpca.py", which is called in ``generate\_figures.ipynb", ``generate\_figures.py", and ``application.py". In all\_except\_for\_fig11 folder,  ``generate\_figures.ipynb" and  ``generate\_figures.py" are doing almost the same thing.
 
 % Acknowledgements should go at the end, before appendices and references
 

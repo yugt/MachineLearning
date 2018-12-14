@@ -102,19 +102,26 @@ The main idea is that we first divide the original data points into small circle
 Then we grab the information about the direction of the local data arrangement in each circle through the sample covariance matrix $\boldsymbol{C}_i$ and extract the information as the projection matrix $\boldsymbol{Q}_i$.
 The affinities $W_{ij}$ are set so that circles are classified as the same cluster if they are geometrically close and the local directions of the data arrangement are similar.
 
-
-
 \autoref{cross} is the simplest example of the clustering by this algorithm ($K = 2$, $r = 15.0$, $\epsilon = 15.0$, $\eta = 0.5$).
 The cross-shaped data is seccessfully separated by the intersection.
+The overview of this algorithm is described intuitively in \autoref{overview}. 
 
 \begin{figure}[htbp]
 \centering
 \vspace{-1em}
-\includegraphics[width=0.8  \textwidth]{cross_shaped.png}
+\includegraphics[width=0.9  \textwidth]{cross_shaped.png}
 \vspace{-1em}
 \caption{Clustering example}
 \label{cross}
 \end{figure}
 
+\begin{figure}[htbp]
+\centering
+\vspace{-1em}
+\includegraphics[width=0.8  \textwidth]{overview.png}
+\vspace{1em}
+\caption{Overview of the Algorithm 4}
+\label{overview}
+\end{figure}
 
 % \end{document}  

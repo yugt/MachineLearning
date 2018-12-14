@@ -19,7 +19,7 @@ sc.plot_spectral_clustering(picture_name = 'cross_shaped.png',
                          K = 2)
 
 
-### Figure 3: Example of intersection cluster
+### Figure 4: Example of intersection cluster
 sc.plot_spectral_clustering(picture_name = 'infinity_shaped.png',
                          color_threshold = 15,
                          r = 15.0,
@@ -28,7 +28,7 @@ sc.plot_spectral_clustering(picture_name = 'infinity_shaped.png',
                          d = 1,
                          K = 2)
 
-### Figure 4: Failure at the corner
+### Figure 5: Failure at the corner
 sc.plot_spectral_clustering(picture_name = 'sharp_720.png',
                          color_threshold = 10,
                          r = 10.0,
@@ -37,7 +37,7 @@ sc.plot_spectral_clustering(picture_name = 'sharp_720.png',
                          d = 1,
                          K = 3)
 
-### Figure 5-1: Successful results with smooth data
+### Figure 6-1: Successful results with smooth data
 sc.plot_spectral_clustering(picture_name = 'smooth_720_1.png',
                          color_threshold = 10,
                          r = 10.0,
@@ -46,7 +46,7 @@ sc.plot_spectral_clustering(picture_name = 'smooth_720_1.png',
                          d = 1,
                          K = 3)
 
-### Figure 5-2: Successful results with smooth data
+### Figure 6-2: Successful results with smooth data
 sc.plot_spectral_clustering(picture_name = 'smooth_720_2.png',
                          color_threshold = 10,
                          r = 10.0,
@@ -55,7 +55,7 @@ sc.plot_spectral_clustering(picture_name = 'smooth_720_2.png',
                          d = 1,
                          K = 3)
 
-### Figure 6: [Left]: eta = 0.1
+### Figure 7: [Left]: eta = 0.1
 sc.plot_spectral_clustering(picture_name = 'smooth_720_1.png',
                          color_threshold = 10,
                          r = 10.0,
@@ -64,7 +64,7 @@ sc.plot_spectral_clustering(picture_name = 'smooth_720_1.png',
                          d = 1,
                          K = 3)
 
-### Figure 6: [Right]: eta = 1.0
+### Figure 7: [Right]: eta = 1.0
 sc.plot_spectral_clustering(picture_name = 'smooth_720_1.png',
                          color_threshold = 10,
                          r = 10.0,
@@ -73,7 +73,7 @@ sc.plot_spectral_clustering(picture_name = 'smooth_720_1.png',
                          d = 1,
                          K = 3)
 
-### Figure 7: [Left]: r = 3.0
+### Figure 8: [Left]: r = 3.0
 sc.plot_spectral_clustering(picture_name = 'smooth_720_1.png',
                          color_threshold = 10,
                          r = 3.0,
@@ -82,7 +82,7 @@ sc.plot_spectral_clustering(picture_name = 'smooth_720_1.png',
                          d = 1,
                          K = 3)
 
-### Figure 7: [Right]: r = 40.0
+### Figure 8: [Right]: r = 40.0
 sc.plot_spectral_clustering(picture_name = 'smooth_720_1.png',
                          color_threshold = 10,
                          r = 40.0,
@@ -91,7 +91,7 @@ sc.plot_spectral_clustering(picture_name = 'smooth_720_1.png',
                          d = 1,
                          K = 3)
 
-### Figure 8: [Left]: eps = 3.0
+### Figure 9: [Left]: eps = 3.0
 sc.plot_spectral_clustering(picture_name = 'smooth_720_1.png',
                          color_threshold = 10,
                          r = 10.0,
@@ -100,7 +100,7 @@ sc.plot_spectral_clustering(picture_name = 'smooth_720_1.png',
                          d = 1,
                          K = 3)
 
-### Figure 8: [Right]: eps = 40.0
+### Figure 9: [Right]: eps = 40.0
 sc.plot_spectral_clustering(picture_name = 'smooth_720_1.png',
                          color_threshold = 10,
                          r = 10.0,
@@ -109,7 +109,7 @@ sc.plot_spectral_clustering(picture_name = 'smooth_720_1.png',
                          d = 1,
                          K = 3)
 
-### Figure 11: Equation clustering by Algorithm 4
+### Figure 12: Equation clustering by Algorithm 4
 sc.plot_spectral_clustering(picture_name = '720_formula.png',
                          color_threshold = 10,
                          r = 6.0,
